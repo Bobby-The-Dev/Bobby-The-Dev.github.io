@@ -1,8 +1,8 @@
 body {
-    background: rgb(99, 0, 0);
-    color: rgb(45, 45, 45);
+    background: rgb(18, 168, 255);
+    color: rgb(196, 196, 196);
     padding: 10px;
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;  
 }
 
 #all-contents {
@@ -12,17 +12,18 @@ body {
 
 /* navigation menu */
 nav {
-    background: rgb(0, 0, 0);
+    background: rgb(196, 196, 196);
     margin: 0 auto;
     display: flex;
     padding: 10px;
     margin-bottom: 20px;
+    border-radius: 10px}
 }
 
 h1 {
     display: flex;
     align-items: center;
-    color: white;
+    color: rgb(255, 255, 255);
     flex: 1;
     margin: 0;
 }
@@ -48,7 +49,7 @@ a {
 main {
     background: rgb(160, 160, 160);
     display: flex;
-    margin-top: 20px;
+    margin-top: 20px; border-radius: 10px
 }
 
 .sidebar {
@@ -87,7 +88,7 @@ h2, h3 {
 }
 
 #portfolio li {
-  background: #fff;
+  background:  rgb(89, 194, 255);
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -99,9 +100,58 @@ h2, h3 {
 
 #portfolio a {
   text-decoration: none;
-  color: #454545;
+  color: #d1e5ff;
 }
 
+/* responsive web design */
+@media screen and (min-width: 120px) and (max-width: 1080px) {
+  main {
+    height: 100ch;
+    zoom: 1.5;
+    display: grid;
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 42px;
+  }
+
+  h3 {
+    font-size: 36px;
+  }
+
+  #all-contents {
+    height: 100ch;
+    margin: none;
+  }
+
+  a {
+    font-size: 42px;
+  }
+
+  .sidebar {
+    margin-right: 0px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sidebar-img {
+    width: 100%;
+  }
+
+  p,
+  li {
+    font-size: 24px;
+  }
+
+  .content {
+    align-content: center;
+    justify-content: center;
+  }
+}
 /* responsive web design */
 @media screen and (min-width: 120px) and (max-width: 1080px) {
   main {
