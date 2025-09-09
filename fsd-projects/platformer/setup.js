@@ -13,7 +13,7 @@ let shouldDrawGrid = false;
 
 // Base game variables
 const frameRate = 60;
-const playerScale = 0.8; //makes the player just a bit smaller. Doesn't affect the hitbox, just the image
+const playerScale = 0.5; //makes the player just a bit smaller. Doesn't affect the hitbox, just the image
 
 // Player variables
 const player = {
@@ -30,8 +30,8 @@ const player = {
 
 let hitDx;
 let hitDy;
-let hitBoxWidth = 50 * playerScale;
-let hitBoxHeight = 105 * playerScale;
+let hitBoxWidth = 30 * playerScale;
+let hitBoxHeight = 95 * playerScale;
 let firstTimeSetup = true;
 
 const keyPress = {
