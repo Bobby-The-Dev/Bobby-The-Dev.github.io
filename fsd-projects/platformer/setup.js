@@ -31,7 +31,7 @@ const player = {
 let hitDx;
 let hitDy;
 let hitBoxWidth = 30 * playerScale;
-let hitBoxHeight = 95 * playerScale;
+let hitBoxHeight = 100 * playerScale;
 let firstTimeSetup = true;
 
 const keyPress = {
@@ -98,4 +98,5 @@ var collectableList = {
   kennedi: { image: "images/collectables/kennedi-head.png" },
   max: { image: "images/collectables/max-head.png" },
   steve: { image: "images/collectables/steve-head.png" },
+  coin: {image: "images/collectables/pngwing.com.png"}
 };
