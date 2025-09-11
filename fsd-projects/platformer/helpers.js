@@ -764,10 +764,8 @@ function handleKeyDown(e) {
   if (e.key === "ArrowRight" || e.key === "d") {
     keyPress.right = true;
   }
-  if (e.key === " ") {
-    keyPress.space = true;
-  }
 }
+
 
 function handleKeyUp(e) {
   if (e.key === "ArrowUp" || e.key === "w") {
