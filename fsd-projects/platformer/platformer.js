@@ -58,7 +58,7 @@ createPlatform(1200, 730, 100, 10, "navy")
 createPlatform(150, 50, 50, 70, "black")
 createPlatform(155, 50, 50, 70, "black")
 createPlatform(1150, 160, 100, 10, "black")
-
+createPlatform(230, 730, 20, 190, "midnight")
 
 
     // TODO 3 - Create Collectables
