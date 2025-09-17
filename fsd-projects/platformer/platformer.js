@@ -27,7 +27,7 @@ $(function () {
     //////////////////////////////////
 
     // TODO 1 - Enable the Grid
-    // toggleGrid();
+    toggleGrid();
 
 
     // TODO 2 - Create Platforms
@@ -55,8 +55,8 @@ createPlatform(1000, 730, 50, 10, "navy")
 createPlatform(1100, 730, 50, 10, "navy")
 createPlatform(900, 730, 50, 10, "navy")
 createPlatform(1200, 730, 100, 10, "navy")
-createPlatform(150, 50, 5, 70, "white")
-createPlatform(155, 50, 50, 30, "maroon")
+createPlatform(150, 50, 50, 70, "black")
+createPlatform(155, 50, 50, 70, "black")
 createPlatform(1150, 160, 100, 10, "black")
 
 
@@ -66,6 +66,7 @@ createPlatform(1150, 160, 100, 10, "black")
 createCollectable("coin", 220, 400, .3, 1)
 createCollectable("coin", 750, 670, .3, 1)
 createCollectable("coin", 990, 190, .3, 1)
+createCollectable("max", 100, 50)
 
     
     // TODO 4 - Create Cannons
