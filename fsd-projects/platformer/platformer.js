@@ -66,7 +66,7 @@ createPlatform(1150, 160, 100, 10, "black")
 createCollectable("coin", 220, 400, .3, 1)
 createCollectable("coin", 750, 670, .3, 1)
 createCollectable("coin", 990, 190, .3, 1)
-createCollectable("max", 100, 50)
+createCollectable("flag", 172, 12)
 
     
     // TODO 4 - Create Cannons
