@@ -74,11 +74,7 @@
 var positionX = 0;
 var points = 0
 var speed = 10
-var positionY = 0;
-var speedY = 10;
 var boardHeight = jQuery(window).height();
-var randNumY = Math.random() * 100;
-var randNumX = Math.random() * 100;
         /**
          * This Function will be called 20 times/second.
          * Each time it is called, it should move the Box to a new location.
@@ -90,12 +86,9 @@ if (positionX > boardWidth - 50) {speed *= -1;}
         positionX = positionX + speed;
           if (positionX < 0) {speed *= -1
 }
-if (positionY > boardHeight - 50) {speedY *= -1;}
-        moveBoxTo(positionY); 
-        positionY = positionY + speedY;
-          if (positionY < 0) {speedY *= -1
+      
           }
-        }
+        
 
         /**
          * This Function will be called each time the box is clicked.
@@ -104,12 +97,12 @@ if (positionY > boardHeight - 50) {speedY *= -1;}
          * - increase the speed
          * - move the box to the left side of the screen.
          */
-        function handleBoxClick() {
-positionY = randNumY;
-positionX = randNumX;
-changeBoxText(points);
-points++;
-speed = 3 *points + 10;
+        
+      function handleBoxClick() {
+      positionX = 0;
+      changeBoxText(points);
+      points++;
+      speed = 3 * points + 10;
         }
 
 
