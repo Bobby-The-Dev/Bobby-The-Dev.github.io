@@ -36,11 +36,11 @@ var init = function (window) {
     
 
         // TODO 3 : Call the drawCircle() function
-    drawCircle(0);
-    drawCircle(1);
-    drawCircle(2);
-    drawCircle(3);
-    drawCircle(4);
+    drawCircle();
+    drawCircle();
+    drawCircle();
+    drawCircle();
+    drawCircle();
         // TODO 7 : Use a loop to create multiple circles
 
 
