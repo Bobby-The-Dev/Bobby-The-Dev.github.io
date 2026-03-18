@@ -18,13 +18,7 @@ var apple = {};
 
 // TODO 5, Part 1: Create the snake variable
 const snake = {};
-function makeSnakeSquare(row, column){
-  $("<div>").addClass("snake");
-  $("#snake").position(repositionSquare);
-  $("#snake").push(snake.body);
-  $("#snake").update(snake.tail);
-  $("#snake").attr("id", "snake-head"); 
-}
+
 // Constant Variables
 var ROWS = 20;
 var COLUMNS = 20;
@@ -53,18 +47,18 @@ $("body").on("keydown", handleKeyDown);
 init();
 
 function init() {
-  // TODO 5, Part 2: initialize the snake
-  snake.body = [];
-makeSnakeSquare(10, 10);
-makeSnakeSquare(10, 9);
-makeSnakeSquare(10, 8);
-snake.head = snake.body[0];
+  // TODO 5, Part 3: initialize the snake
+  snake.body = []; // Start with an empty body
+makeSnakeSquare(10, 10); // Create the first square in the middle of the board
+makeSnakeSquare(10, 9); // Create a second square to the left of the first
+makeSnakeSquare(10, 8); // Create a third square to the left of the second
+snake.head = snake.body[0]; // Mark the first segment as the head
   
   // TODO 4, Part 3: initialize the apple
 makeApple()
 
   // TODO 6, Part 1: Initialize the interval
-
+updateInterval = setInterval(update, 100);
 
 }
 
@@ -78,7 +72,17 @@ makeApple()
  */
 function update() {
   // TODO 6, Part 2: Fill in the update function's code block
+if (started) {
+  moveSnake();
+}
 
+if (hasHitWall() || hasCollidedWithSnake()) {
+  endGame();
+}
+
+if (hasCollidedWithApple()) {
+  handleAppleCollision();
+}
 
 
 
@@ -95,7 +99,15 @@ function checkForNewDirection(event) {
   if (activeKey === KEY.LEFT) {
     snake.head.direction = "left";
   }
-
+else if (activeKey === KEY.UP) {
+  snake.head.direction = "up";
+}
+else if (activeKey === KEY.DOWN) {
+  snake.head.direction = "down";
+}
+else if (activeKey === KEY.RIGHT) {
+  snake.head.direction = "right";
+}
   // FILL IN THE REST
 
   // console.log(snake.head.direction);     // uncomment me!
@@ -110,7 +122,14 @@ function moveSnake() {
     stored in the Array snake.body and each part knows its current 
     column/row properties. 
   */
+for ( /* start, stop, and update statements to loop backwards through the indexes of snake.body */ ) {
+    var currentSnakeSquare = "???";
+    var snakeSquareInFront = "???";
 
+    moveBodyAToBodyB(currentSnakeSquare, snakeSquareInFront);
+
+    repositionSquare(currentSnakeSquare);
+}
 
 
 
@@ -124,15 +143,33 @@ function moveSnake() {
     HINT: The snake's head will need to move forward 1 square based on the value
     of snake.head.direction which may be one of "left", "right", "up", or "down"
   */
-
-
-
+if (snake.head.direction === "left") {
+  snake.head.column = snake.head.column - 1;
+}
+if (snake.head.direction === "right") {
+  snake.head.column = snake.head.column + 1;
+}
+if (snake.head.direction === "up") {
+  snake.head.row = snake.head.row - 1;
+}
+if (snake.head.direction === "down") {
+  snake.head.row = snake.head.row + 1;
+}
+repositionSquare(snake.head)
 
 }
 
 // TODO 9: Create a new helper function
-
-
+function moveBodyAToBodyB(bodyA, bodyB){
+  bodyA.row = bodyB.row
+  bodyA.column = bodyB.column
+  bodyA.direction = bodyB.direction
+}
+console.log("Moving body A to body B...");
+setTimeout(() => {
+  moveBodyAToBodyB(snake.body[1], snake.head);
+  repositionSquare(snake.body[1]);
+}, 2_000);
 
 
 
@@ -239,7 +276,26 @@ repositionSquare(apple);
  */
 function makeSnakeSquare(row, column) {
   // TODO 5, Part 2: Fill in this function's code block
+const snakeSquare = {};
 
+// make the snakeSquare element and add it to the board
+snakeSquare.element = $("<div>").addClass("snake").appendTo(board);
+
+// assign the row and column position
+snakeSquare.row = row;
+snakeSquare.column = column;
+
+// set the snake’s position visually
+repositionSquare(snakeSquare);
+
+// if this is the head, give it a unique ID
+if (snake.body.length === 0) {
+  snakeSquare.element.attr("id", "snake-head");
+}
+
+// add the square to the snake’s body and update the tail
+snake.body.push(snakeSquare);
+snake.tail = snakeSquare;
 
 
 
@@ -258,7 +314,8 @@ function makeSnakeSquare(row, column) {
 */
 function handleKeyDown(event) {
   // TODO 7: make the handleKeyDown function register which key is pressed
-
+activeKey = event.which;
+console.log(activeKey);
 
   // If a valid direction key is pressed, start the game
   if (
