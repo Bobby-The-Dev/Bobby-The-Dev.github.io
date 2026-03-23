@@ -235,11 +235,9 @@ for (q = snake.body.length - 1; q > 0; q--){
   if (snake.head.row === snake.body[q].row && snake.head.column === snake.body[q].column){
     return true
   }
-  else {
-    return false;
-  }
+ 
 }
-
+ return false;
 
   
 }
