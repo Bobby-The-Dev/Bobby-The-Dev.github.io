@@ -97,22 +97,13 @@ function redrawGameItem() {
 $("#walker").css("top", walker.y);
 }
  function wallCollision(){
-  if (walker.x < $("#board").width()){
-walker.speedX = 0 
-walker.x = $("#board").width() 
+  if (walker.x + 50 > $("#board").width() || walker.x < 0 ){
+walker.x -= walker.speedX;
   }
-  if (walker.y < $("#board").height() ){
-walker.speedY = 0
-walker.y = $("#board").height()
+if (walker.y + 50 > $("#board").height() || walker.y < 0 ){
+walker.y -= walker.speedY;
   }
-  if (walker.x > 0){
-    walker.speedX = 0
-    walker.x = 0
-  }
-  if (walker.y > 0){
-    walker.speedY = 0
-    walker.y = 0
-  }
+
  }
   function endGame() {
     // stop the interval timer
